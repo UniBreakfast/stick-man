@@ -1,0 +1,114 @@
+.stick-man {
+  --color: black;
+  --width: 20px;
+  --head-size: 70px;
+  position: absolute;
+  left: 200px;
+  top: 200px;
+}
+
+.stick-man div {
+  background-color: var(--color);
+  border-radius: 999px;
+}
+
+.body {
+  height: calc(var(--width) * 8);
+}
+
+.body, .shoulder, .hip, .arm, .leg, .hand, .foot {
+  width: var(--width);
+}
+
+.shoulder, .hip, .arm, .leg, .hand, .foot {
+  position: absolute;
+  transform-origin: top;
+}
+
+.right {
+  animation-direction: alternate;
+}
+
+.head {
+  position: absolute;
+  width: var(--head-size);
+  height: var(--head-size);
+  transform: translateX(calc(var(--width) / 2 - 50%));
+  top: calc(var(--head-size) / -1.5);
+}
+
+.shoulder {
+  top: calc(var(--width) * 2);
+}
+
+.arm {
+  height: calc(var(--width) * 2.7);
+}
+
+.hand {
+  height: calc(var(--width) * 3.3);
+  top: calc(100% - var(--width) / 2);
+}
+
+.hip {
+  top: calc(var(--width) * 7.5);
+}
+
+.leg {
+  height: calc(var(--width) * 8);
+}
+
+.foot {
+  height: calc(var(--width) * 1.5);
+  top: calc(100% - var(--width) / 2);
+}
+
+.shoulder.left, .hand.left {
+  transform: rotate(20deg);
+}
+
+.shoulder.right, .hand.right {
+  transform: rotate(-20deg);
+}
+
+.hip.left {
+  transform: rotate(5deg);
+}
+
+.hip.right {
+  transform: rotate(-5deg);
+}
+
+.foot.left {
+  transform: rotate(70deg);
+}
+
+.foot.right {
+  transform: rotate(-70deg);
+}
+
+.left.arm, .left.leg {
+  animation: move-left 1s ease infinite alternate;
+}
+
+.right.arm, .right.leg {
+  animation: move-right 1s ease infinite alternate;
+}
+
+@keyframes move-left {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(60deg);
+  }
+}
+
+@keyframes move-right {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-60deg);
+  }
+}
